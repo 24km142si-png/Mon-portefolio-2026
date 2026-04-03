@@ -225,3 +225,15 @@ footer a:hover{
     color: var(--orange-vif);
     transform: translate(-3px);
 }
+
+
+
+
+/* RESET ET FONTS */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f9fafc;
+    color: #333;
+}
+
