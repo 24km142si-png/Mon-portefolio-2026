@@ -1,42 +1,209 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon portefolo</title>
+    <title>Mon Portfolio - Mes Divertissements</title>
     <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --p-violet: #6C63FF;
+            --p-gris-fonce: #333;
+        }
 
+        .passion-main {
+            background-color: white; 
+            padding-bottom: 5rem;
+        }
+
+        /* Grille de Divertissements */
+        .grid-passions {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+        }
+
+        .passion-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background-color: white;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .passion-block.reverse .passion-text {
+            grid-column: 1;
+            grid-row: 1;
+        }
+        .passion-block.reverse .passion-img-container {
+            grid-column: 2;
+        }
+
+        .passion-img-container {
+            position: relative;
+            overflow: hidden;
+            height: 350px;
+        }
+
+        .passion-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        /* Effet Diagonale */
+        .passion-block:not(.reverse) .passion-img-container {
+            clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+        }
+        .passion-block.reverse .passion-img-container {
+            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        .passion-text {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-bottom: 1px solid #F5F5F5;
+        }
+
+        .passion-number {
+            font-size: 4rem;
+            font-weight: 900;
+            color: rgba(108, 99, 255, 0.1);
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            line-height: 1;
+        }
+
+        .passion-icon {
+            font-size: 2.5rem;
+            color: var(--p-violet);
+            margin-bottom: 1.5rem;
+        }
+
+        .passion-text h3 {
+            color: var(--p-gris-fonce);
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .passion-text p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .passion-block:hover {
+            background-color: #FBFBFF;
+            transform: scale(1.02);
+            z-index: 2;
+            box-shadow: 0 15px 40px rgba(108, 99, 255, 0.1);
+        }
+
+        .passion-block:hover .passion-img { transform: scale(1.1); }
+
+        @media (max-width: 900px) {
+            .grid-passions { grid-template-columns: 1fr; }
+            .passion-block, .passion-block.reverse { grid-template-columns: 1fr; }
+            .passion-img-container { height: 250px; clip-path: none !important; }
+            .passion-block.reverse .passion-text { grid-column: auto; grid-row: auto; }
+            .passion-block.reverse .passion-img-container { grid-column: auto; }
+        }
+    </style>
 </head>
 <body>
-    <header> 
-        <div>
-            <a href=""> Mon portefolio</a>
-        </div>
+
+    <header class="navbar"> 
+        <div class="logo">Mon Portfolio</div>
         <nav>
             <ul>
-                <li> <a href="" class="active">Accueil</a></li>
-                <li> <a href="projet.html">Projets</a></li>
-                <li> <a href="passion.html" >Passion</a></li>
-                <li> <a href="divertissement.html">Divertissement</a></li>
-                <li> <a href="contact.html">Contact</a></li>
+                <li><a href="index.html">Accueil</a></li>
+        <li><a href="projet.html">Projets</a></li>
+        <li><a href="passion.html" class="active">Passions</a></li> 
+        <li><a href="divertissement.html">Divertissement</a></li>
+        <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <h1> Voici mes passion</h1>
-    </main>
-    
-        <footer>
-            <div>
-                <p>&copy; 2026 Bathley. Tous droits réservés</p>
-            <a href=""><i class="fa-brands fa-github"></i></a>
-            <a href=""><i class="fa-brands fa-linkedin"></i></a>
-            <a href=""><i class="fa-brands fa-x-twitter"></i></a>
+
+    <main class="passion-main">
+        <section class="apropos">
+            <h2>Mes Divertissements</h2>
+            <p style="color:#666; font-size:1.1rem; margin-top:-1rem; margin-bottom:4rem;">Ce qui me permet de décompresser et de trouver de l'inspiration au-delà du code.</p>
+        </section>
+
+        <section class="grid-passions">
+            <div class="passion-block">
+                <div class="passion-img-container">
+                    <img src="Image/DE.jpg" alt="Trading" class="passion-img">
+                </div>
+                <div class="passion-text">
+                    <span class="passion-number">01</span>
+                    <i class="fa-solid fa-chart-line passion-icon"></i>
+                    <h3>Analyse & Stratégie</h3>
+                    <p>Prendre du recul sur les marchés et affiner mes analyses est une véritable passion intellectuelle.</p>
+                </div>
             </div>
 
-           
-        </footer>
+            <div class="passion-block reverse">
+                <div class="passion-img-container">
+                    <img src="Image/RIC.jpg" alt="Musique" class="passion-img">
+                </div>
+                <div class="passion-text">
+                    <span class="passion-number">02</span>
+                    <i class="fa-solid fa-headphones-simple passion-icon"></i>
+                    <h3>Immersion Sonore</h3>
+                    <p>Rien de tel qu'une bonne playlist pour s'évader ou se concentrer sur de nouveaux défis.</p>
+                </div>
+            </div>
+
+            <div class="passion-block reverse">
+                <div class="passion-img-container">
+                    <img src="Image/F.jpg" alt="Gaming" class="passion-img">
+                </div>
+                <div class="passion-text">
+                    <span class="passion-number">03</span>
+                    <i class="fa-solid fa-gamepad passion-icon"></i>
+                    <h3>Esprit de Compétition</h3>
+                    <p>Le gaming me permet de décompresser tout en gardant mes réflexes aiguisés.</p>
+                </div>
+            </div>
+
+            <div class="passion-block">
+                <div class="passion-img-container">
+                    <img src="Image/MENTORAT.jpg" alt="Lecture" class="passion-img">
+                </div>
+                <div class="passion-text">
+                    <span class="passion-number">04</span>
+                    <i class="fa-solid fa-book-open passion-icon"></i>
+                    <h3>Découverte & Veille</h3>
+                    <p>Toujours à l'affût de nouvelles connaissances pour nourrir ma curiosité.</p>
+                </div>
+            </div>
+        </section>
     </main>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Bathley. Tous droits réservés</p>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

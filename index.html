@@ -1,115 +1,98 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon portefolo</title>
+    <title>Portfolio - Bathley Kayumba</title>
     <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <header> 
-        <div>
-            <a href=""> Mon portefolio</a>
-        </div>
-        <nav>
-            <ul>
-                <li> <a href="index.html" class="active">Accueil</a></li>
-                <li> <a href="projet.html">Projets</a></li>
-                <li> <a href="passion.html">Passion</a></li>
-                <li> <a href="divertissement.html">Divertissement</a></li>
-                <li> <a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+
+   <header class="navbar">
+    <div class="logo">
+        <a href="index.html">Mon Portfolio</a>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">Accueil</a></li>
+            <li><a href="projet.html">Projets</a></li>
+            <li><a href="passion.html">Passions</a></li>
+            <li><a href="divertissement.html">Divertissement</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
     <main>
         <section class="hero">
-        
-            <div> 
-               <h1> Bonjour à tous, je suis Bathley Kayumba </h1>
-               <p> Etudiant en L2 et passionée par la technologie et le trading</p>
-               <a href="projet.html">Voir mes Projets</a>
+            <div class="hero-text">
+                <h1>Bonjour à tous, je suis <br><span>Bathley Kayumba</span></h1>
+                <p>Étudiant en L2 et passionné par la technologie et le trading.</p>
+                <a href="projet.html" class="btn">VOIR MES PROJETS</a>
             </div>
-            <div>
-               <img src="Image/I2.jpeg " alt"Bathley trader" height="200"
+
+            
+            <div class="hero-img">
+                <img src="Image/I2.jpeg" alt="Bathley">
             </div>
         </section>
-    </main>
-    <main>
-        <section class="apropos ">
-            <div> 
-                <h2> A PROPOS DE NOUS </h2>
-                <p>
-                    Bonjour ! je m'appelle Bathley Kayumba et je suis un etudiant dynamique et motivé
-                    en informatique à l'UDBL. Passionné par la télecommunication et le trading
 
-                </p> 
-               <P> Au cours de mes etudes, j'ai développé de solide compétences en leadership et la communication 
-                                         avec les autres   Je suis une personne rigoureuse, 
-                                         créative et j'aime travailler en équipe pour atteindre 
-                                         des objectifs communs_ j'aime les gens travailleurs et non les paresseux 
-                </P> 
-                </div>
-                
-                
-            
-            <div>
-        </section> 
-    </main>
-    <main>
         <section class="competences">
-            <div>
-                <h2> Mes competences</h2>
-                <table>
+            <div class="header-section">
+                <h2>Mes Compétences</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="skills-table-container">
+                <table class="skills-table">
                     <thead>
-                    <tr>
-                        <th> Categorie</th>;
-                        <th> compétences</th>
-                        <th> Niveau</th>
-                    </tr>
-                    <tr>
-                        <td> Programmation</td>
-                        <td> HTML, CSS, JavaScripts, Python</td>
-                        <td> Avancé</td>
-
-                    </tr>
-                    <tr>
-                        <td> Design</td>
-                        <td> Figma, Photoshop(bases)</td>
-                        <td> Intermédiaire</td>
-
-                    </tr>
-                    <tr>
-                        <td> Langues</td>
-                        <td> Francais (natif), Anglais (fluide)</td>
-                        <td> Avancé</td>
                         <tr>
-                            <td> Outils</td>
-                            <td> Git, Vs Code, suite office</td>
-                            <td> Avancé</td>
+                            <th>CATÉGORIE</th>
+                            <th>COMPÉTENCES</th>
+                            <th>NIVEAU</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Programmation</td>
+                            <td>HTML, CSS, JavaScript, Python</td>
+                            <td><span class="badge advanced">Avancé</span></td>
                         </tr>
                         <tr>
-                            <td> SOft skills</td>
-                            <td> Communication, Résolution</td>
-                            <td> Expert</td>
+                            <td>Design</td>
+                            <td>Figma, Photoshop (bases)</td>
+                            <td><span class="badge intermediate">Intermédiaire</span></td>
                         </tr>
-
-                    </tr>
+                        <tr>
+                            <td>Outils</td>
+                            <td>Git, VS Code, Suite Office</td>
+                            <td><span class="badge advanced">Avancé</span></td>
+                        </tr>
+                        <tr>
+                            <td>Soft Skills</td>
+                            <td>Communication, Autonomie</td>
+                            <td><span class="badge expert">Expert</span></td>
+                        </tr>
+                    </tbody>
                 </table>
-            
             </div>
         </section>
-        <footer>
-            <div>
-                <p>&copy; 2026 Bathley. Tous droits réservés</p>
-            <a href=""><i class="fa-brands fa-github"></i></a>
-            <a href=""><i class="fa-brands fa-linkedin"></i></a>
-            <a href=""><i class="fa-brands fa-x-twitter"></i></a>
-            </div>
-
-           
-        </footer>
     </main>
+
+    <footer>
+        <p>&copy; 2026 Bathley. Tous droits réservés</p>
+        <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+    </footer>
+
 </body>
 </html>
+
+
+
+
+

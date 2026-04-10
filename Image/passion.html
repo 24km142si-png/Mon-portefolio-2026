@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Divertissement - Mon Portfolio</title>
+    <title>Mon Portfolio - Mes Divertissements</title>
     <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     
     <style>
         :root {
@@ -14,54 +14,45 @@
             --dark: #333333;
             --text: #666666;
             --bg: #f8f9fd; 
-            --radius-card: 25px;
+            --radius-card: 20px;
             --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.08);
-            --transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --transition: 0.4s ease-in-out;
         }
 
         body {
             background-color: var(--bg);
-            margin: 0;
-            font-family: 'Inter', sans-serif;
         }
 
-        /* Hero Section */
         .diverto-hero {
             text-align: center;
-            padding: 100px 10% 60px;
-            background: linear-gradient(135deg, #fff 0%, #f0f0ff 100%);
+            padding: 80px 10%;
+            background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(240,240,255,1) 100%);
         }
-
         .diverto-hero h1 {
             font-size: 3rem;
             color: var(--dark);
             margin-bottom: 15px;
         }
-
-        .diverto-hero .underline {
-            width: 60px;
-            height: 4px;
-            background: var(--brand);
-            margin: 0 auto 20px;
-            border-radius: 10px;
+        .diverto-hero p {
+            font-size: 1.1rem;
+            color: var(--text);
+            max-width: 700px;
+            margin: 0 auto;
         }
 
-        /* Container & Grid */
         .diverto-cards-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px 10% 100px;
+            padding: 20px 10% 80px;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 60px;
         }
 
-        /* Effet Quinconce (une carte sur deux décalée) */
         .diverto-cards-container .diverto-card:nth-child(even) {
-            margin-top: 80px;
+            margin-top: 60px;
         }
 
-        /* Card Style */
         .diverto-card {
             background-color: var(--white);
             border-radius: var(--radius-card);
@@ -75,7 +66,7 @@
 
         .card-image-holder {
             width: 100%;
-            height: 320px;
+            height: 300px;
             position: relative;
             overflow: hidden;
         }
@@ -92,12 +83,14 @@
             top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(108, 99, 255, 0.4);
             opacity: 0;
-            transition: 0.4s;
+            transition: var(--transition);
         }
 
-        /* Text Content */
         .card-text-body {
-            padding: 35px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             flex-grow: 1;
         }
 
@@ -105,15 +98,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .card-meta i {
             font-size: 1.8rem;
             color: var(--brand);
-            background: #f0efff;
-            width: 65px;
-            height: 65px;
+            background: #f0f0ff;
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -121,46 +114,47 @@
         }
 
         .card-number {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: #f0f0f0;
+            font-size: 3rem;
+            font-weight: 800;
+            color: #eee;
             line-height: 1;
         }
 
         .card-text-body h3 {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             color: var(--dark);
             text-transform: uppercase;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             letter-spacing: 1px;
         }
 
         .card-text-body p {
+            font-size: 0.95rem;
             color: var(--text);
-            line-height: 1.7;
-            margin-bottom: 0;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
-        /* Hover States */
+        .card-underline {
+            width: 0;
+            height: 3px;
+            background-color: var(--brand);
+            transition: var(--transition);
+        }
+
         .diverto-card:hover {
-            transform: translateY(-20px);
-            box-shadow: 0 30px 60px rgba(108, 99, 255, 0.2);
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(108, 99, 255, 0.15);
         }
 
         .diverto-card:hover .card-image-holder img { transform: scale(1.1); }
         .diverto-card:hover .image-overlay { opacity: 1; }
-        .diverto-card:hover .card-number { color: rgba(108, 99, 255, 0.1); }
+        .diverto-card:hover .card-underline { width: 50px; }
+        .diverto-card:hover .card-number { color: rgba(108, 99, 255, 0.2); }
 
-        /* Mobile Responsive */
-        @media (max-width: 950px) {
-            .diverto-cards-container {
-                grid-template-columns: 1fr;
-                padding: 20px 5% 60px;
-            }
-            .diverto-cards-container .diverto-card:nth-child(even) {
-                margin-top: 0;
-            }
-            .diverto-hero h1 { font-size: 2.2rem; }
+        @media (max-width: 900px) {
+            .diverto-cards-container { grid-template-columns: 1fr; padding: 0 5% 60px; }
+            .diverto-cards-container .diverto-card:nth-child(even) { margin-top: 0; }
         }
     </style>
 </head>
@@ -172,25 +166,24 @@
             <ul>
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="projet.html">Projets</a></li>
-                <li><a href="passion.html">Passion</a></li>
+                <li><a href="passion.html">Passions</a></li>
                 <li><a href="divertissement.html" class="active">Divertissement</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
+    <main class="diverto-main">
         <section class="diverto-hero">
-            <h1>Mes Divertissements</h1>
-            <div class="underline"></div>
-            <p>Ce qui me permet de décompresser et de trouver de l'inspiration au-delà du code.</p>
+            <h1>L'Art de s'Évader</h1>
+            <p>Entre stratégie, sport et culture : voici comment je nourris mon esprit en dehors du travail.</p>
         </section>
 
         <section class="diverto-cards-container">
 
             <article class="diverto-card">
                 <div class="card-image-holder">
-                    <img src="Image/T.jpg" alt="Analyse Trading">
+                    <img src="Image/T.jpg" alt="Trading">
                     <div class="image-overlay"></div>
                 </div>
                 <div class="card-text-body">
@@ -198,14 +191,17 @@
                         <i class="fa-solid fa-chart-line"></i>
                         <span class="card-number">01</span>
                     </div>
-                    <h3>Analyse & Trading</h3>
-                    <p>Analyser les courbes et comprendre la psychologie des marchés est mon jeu de stratégie préféré.</p>
+                    <div>
+                        <h3>Trading & Analyse</h3>
+                        <p>Déchiffrer les tendances du marché et anticiper les mouvements financiers est pour moi un défi intellectuel captivant.</p>
+                        <div class="card-underline"></div>
+                    </div>
                 </div>
             </article>
 
             <article class="diverto-card">
                 <div class="card-image-holder">
-                    <img src="Image/Camp Nou.jpg" alt="Passion Football">
+                    <img src="Image/F.jpg" alt="Football">
                     <div class="image-overlay"></div>
                 </div>
                 <div class="card-text-body">
@@ -213,14 +209,17 @@
                         <i class="fa-solid fa-circle-nodes"></i>
                         <span class="card-number">02</span>
                     </div>
-                    <h3>Passion Football</h3>
-                    <p>Le football est pour moi une école de discipline, de stratégie et d'adrénaline pure.</p>
+                    <div>
+                        <h3>Passion Football</h3>
+                        <p>Qu'il s'agisse de tactique sur le terrain ou de l'adrénaline d'un grand match, le foot est une source d'énergie brute.</p>
+                        <div class="card-underline"></div>
+                    </div>
                 </div>
             </article>
 
             <article class="diverto-card">
                 <div class="card-image-holder">
-                    <img src="Image/ST.jpg" alt="Univers Gaming">
+                    <img src="Image/Camp Nou.jpg" alt="Gaming">
                     <div class="image-overlay"></div>
                 </div>
                 <div class="card-text-body">
@@ -228,14 +227,17 @@
                         <i class="fa-solid fa-gamepad"></i>
                         <span class="card-number">03</span>
                     </div>
-                    <h3>Univers Gaming</h3>
-                    <p>Plonger dans des mondes compétitifs pour tester mes réflexes et ma réactivité stratégique.</p>
+                    <div>
+                        <h3>Jeux Vidéo</h3>
+                        <p>Une immersion totale dans des univers virtuels où la stratégie et la réactivité sont les clés du succès.</p>
+                        <div class="card-underline"></div>
+                    </div>
                 </div>
             </article>
 
             <article class="diverto-card">
                 <div class="card-image-holder">
-                    <img src="Image/V.jpg" alt="Lecture et Veille">
+                    <img src="Image/V.jpg" alt="Lecture">
                     <div class="image-overlay"></div>
                 </div>
                 <div class="card-text-body">
@@ -243,8 +245,11 @@
                         <i class="fa-solid fa-book-open"></i>
                         <span class="card-number">04</span>
                     </div>
-                    <h3>Lecture & Veille</h3>
-                    <p>Nourrir ma curiosité intellectuelle à travers les livres et rester à l'affût des nouvelles tendances.</p>
+                    <div>
+                        <h3>Lecture & Savoir</h3>
+                        <p>Rien ne remplace le calme d'un bon livre pour approfondir ses connaissances et découvrir de nouvelles perspectives.</p>
+                        <div class="card-underline"></div>
+                    </div>
                 </div>
             </article>
 
@@ -252,8 +257,14 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 Bathley. Tous droits réservés</p>
+        <div class="footer-content">
+            <p>&copy; 2026 Bathley. Tous droits réservés</p>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
     </footer>
-
 </body>
 </html>
